@@ -18,7 +18,7 @@ type IAppBaseApi interface {
 	// @param:
 	//
 	// @return:
-	GetAccessToken(appId string, secret string) (dto.AccessTokenDto, error)
+	GetAccessToken(appId string, secret string) (*dto.AccessTokenDto, error)
 
 	// 小程序登录
 	//
@@ -27,7 +27,7 @@ type IAppBaseApi interface {
 	// @param:
 	//
 	// @return:
-	Code2Session(appId string, secret string, code string) (dto.Code2SessionDto, error)
+	Code2Session(appId string, secret string, code string) (*dto.Code2SessionDto, error)
 
 	// 检查登录状态
 	//
@@ -45,5 +45,5 @@ type IAppBaseApi interface {
 	// @param:
 	//
 	// @return:
-	ResetUserSessionKey(accessToken string, openid string) (dto.Code2SessionDto, error)
+	ResetUserSessionKey(accessToken string, openid string) (*dto.Code2SessionDto, error)
 }

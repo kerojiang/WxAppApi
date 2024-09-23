@@ -9,12 +9,53 @@
 package security
 
 import (
+	"crypto/aes"
+	"crypto/cipher"
 	"crypto/hmac"
+	"crypto/md5"
+	"crypto/rand"
 	"crypto/sha256"
+	"encoding/hex"
+	"io"
 )
 
 func HmacSha256(msg string, secret string) string {
-	h := hmac.New(sha256.New, []byte(secret))
-	h.Write([]byte(msg))
-	return string(h.Sum(nil))
+	hash := hmac.New(sha256.New, []byte(secret))
+	hash.Write([]byte(msg))
+	return string(hash.Sum(nil))
+}
+
+// aes256加密
+//
+// @description:
+//
+// @param:
+//
+// @return:
+func Aes256GCM(msg string, secret string) string {
+
+	nonce := genrateNonce()
+	hash := md5.Sum([]byte(secret))
+
+	block, err := aes.NewCipher(hash[:])
+	if err != nil {
+		panic(err)
+	}
+	aesgcm, err := cipher.NewGCM(block)
+	if err != nil {
+		panic(err)
+	}
+	sealed := aesgcm.Seal(nil, nonce, []byte(msg), nil)
+	out := append(nonce, sealed...)
+
+	return hex.EncodeToString(out)
+}
+
+func genrateNonce() []byte {
+	nonce := make([]byte, 12)
+	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+		panic("生成随机数异常")
+	}
+
+	return nonce
 }

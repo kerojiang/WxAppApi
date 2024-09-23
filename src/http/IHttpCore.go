@@ -8,8 +8,10 @@
 
 package http
 
-type IHttpCore interface {
-	Get(url string, config HttpConfig) (string, error)
+import "wxapp/model/dto"
 
-	Post(url string, data string, config HttpConfig) (string, error)
+type IHttpCore interface {
+	Get(url string) (*dto.HttpResponseDto, error)
+
+	Post(url string, data string) (*dto.HttpResponseDto, error)
 }

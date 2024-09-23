@@ -26,11 +26,15 @@ func NewAppBaseApi(i do.Injector) IAppBaseApi {
 	}
 }
 
-func (a *AppBaseApi) GetAccessToken(appId string, secret string) (dto.AccessTokenDto, error) {
-	panic("TODO: Implement")
+func (a *AppBaseApi) GetAccessToken(appId string, secret string) (*dto.AccessTokenDto, error) {
+	url := "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId + "&secret=" + secret
+	result, err := a.httpCore.Get(url)
+	if err != nil {
+		return nil, err
+	}
 }
 
-func (a *AppBaseApi) Code2Session(appId string, secret string, code string) (dto.Code2SessionDto, error) {
+func (a *AppBaseApi) Code2Session(appId string, secret string, code string) (*dto.Code2SessionDto, error) {
 	panic("TODO: Implement")
 }
 
@@ -38,6 +42,6 @@ func (a *AppBaseApi) CheckSessionKey(accessToken string, openid string) (bool, e
 	panic("TODO: Implement")
 }
 
-func (a *AppBaseApi) ResetUserSessionKey(accessToken string, openid string) (dto.Code2SessionDto, error) {
+func (a *AppBaseApi) ResetUserSessionKey(accessToken string, openid string) (*dto.Code2SessionDto, error) {
 	panic("TODO: Implement")
 }
