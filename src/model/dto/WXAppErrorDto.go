@@ -8,7 +8,7 @@
 
 package dto
 
-type ErrorDto struct {
+type WXErrorDto struct {
 	ErrMsg  string `json:"errmsg"`
 	ErrCode int    `json:"errcode"`
 }
