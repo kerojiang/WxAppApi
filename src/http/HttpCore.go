@@ -12,6 +12,7 @@ import (
 	"bytes"
 	"io"
 	"net/http"
+
 	"wxapp/model/dto"
 )
 
@@ -33,7 +34,7 @@ func NewHttpCore(config *HttpHeadConfig) IHttpCore {
 	}
 }
 
-func (h *HttpCore) Get(url string) (*dto.HttpResponseDto, error) {
+func (h *HttpCore) Get(url string) (*dto.HttpResDto, error) {
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
@@ -54,14 +55,14 @@ func (h *HttpCore) Get(url string) (*dto.HttpResponseDto, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &dto.HttpResponseDto{
+	return &dto.HttpResDto{
 		StatusCode: resp.StatusCode,
 		Body:       string(buf),
 	}, nil
 
 }
 
-func (h *HttpCore) Post(url string, data string) (*dto.HttpResponseDto, error) {
+func (h *HttpCore) Post(url string, data string) (*dto.HttpResDto, error) {
 	req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer([]byte(data)))
 	if err != nil {
 		return nil, err
@@ -83,7 +84,7 @@ func (h *HttpCore) Post(url string, data string) (*dto.HttpResponseDto, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &dto.HttpResponseDto{
+	return &dto.HttpResDto{
 		StatusCode: resp.StatusCode,
 		Body:       string(buf),
 	}, nil

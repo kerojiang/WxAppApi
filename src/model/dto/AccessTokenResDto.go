@@ -8,7 +8,8 @@
 
 package dto
 
-type AccessTokenDto struct {
+type AccessTokenResDto struct {
+	WXAppErrorDto
 	AccessToken string `json:"access_token"`
 	ExpiresIn   int    `json:"expires_in"`
 }

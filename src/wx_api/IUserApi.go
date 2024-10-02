@@ -8,6 +8,8 @@
 
 package wx_api
 
+import "wxapp/model/dto"
+
 type IUserApi interface {
 
 	// 检查加密数据
@@ -19,12 +21,22 @@ type IUserApi interface {
 	// @return:
 	CheckEncryptedData(encryptData string) (bool, error)
 
-	// 获取支付后的用户UnionId
+	// GetOpenId
+	// 获取用户的openid
+	//  @Description:
+	//  @param accessToken
+	//  @param code
+	//  @return *dto.OpenidResDto
+	//  @return error
 	//
+	GetOpenId(accessToken string, code string) (*dto.OpenidResDto, error)
+
+	// GetPaidUnionId
+	// 获取支付后的用户UnionId
 	// @description:
 	//
 	// @param:
 	//
 	// @return:
-	GetPaidUnionId(openId string, transactionId string) (string, error)
+	GetPaidUnionId(openId string, transactionId string) (*dto.PayUnionidResDto, error)
 }

@@ -8,7 +8,7 @@
 
 package dto
 
-type QueryOrderResponseDto struct {
+type QueryOrderResDto struct {
 	MachId         string `json:"mchId"`
 	OutTradeNo     string `json:"out_trade_no"`
 	TradeState     string `json:"trade_state"`

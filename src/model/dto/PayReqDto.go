@@ -10,7 +10,7 @@ package dto
 
 import "wxapp/model"
 
-type PayRequestDto struct {
+type PayReqDto struct {
 	AppId       string       `json:"appId"`
 	MchId       string       `json:"mchId"`
 	Description string       `json:"description"`

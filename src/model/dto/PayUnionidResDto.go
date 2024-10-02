@@ -7,3 +7,8 @@
  */
 
 package dto
+
+type PayUnionidResDto struct {
+	WXAppErrorDto
+	UnionId string `json:"unionid"`
+}

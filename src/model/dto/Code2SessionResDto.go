@@ -8,8 +8,10 @@
 
 package dto
 
-type Code2SessionDto struct {
-	ErrorDto
+// code2session响应dto
+// @Description:
+type Code2SessionResDto struct {
+	WXAppErrorDto
 	OpenId     string `json:"openid"`
 	SessionKey string `json:"session_key"`
 	UnionId    string `json:"unionid"`

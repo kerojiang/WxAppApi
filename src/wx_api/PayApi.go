@@ -23,6 +23,7 @@ func NewPayApi(i do.Injector) IPayApi {
 	return &PayApi{
 		httpCore: do.MustInvoke[http.IHttpCore](i),
 	}
+
 }
 
 func (p *PayApi) Pay(payRequest *dto.PayRequestDto) (*dto.PayResponseDto, error) {

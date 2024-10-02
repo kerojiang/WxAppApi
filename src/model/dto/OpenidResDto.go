@@ -7,3 +7,8 @@
  */
 
 package dto
+
+type OpenidResDto struct {
+	WXAppErrorDto
+	OpenId string `json:"openid"`
+}

@@ -10,40 +10,43 @@ package wx_api
 
 import "wxapp/model/dto"
 
+// IAppBaseApi 小程序基础接口
+// @Description:
 type IAppBaseApi interface {
-	//获取接口调用凭证
+	// 获取接口调用凭证
 	//
 	// @description:
 	//
 	// @param:
 	//
 	// @return:
-	GetAccessToken(appId string, secret string) (*dto.AccessTokenDto, error)
+	GetAccessToken(appId string, secret string) (*dto.AccessTokenResDto, error)
 
+	// Code2Session
 	// 小程序登录
-	//
 	// @description:
 	//
 	// @param:
 	//
 	// @return:
-	Code2Session(appId string, secret string, code string) (*dto.Code2SessionDto, error)
+	Code2Session(appId string, secret string, code string) (*dto.Code2SessionResDto, error)
 
+	// CheckSessionKey
 	// 检查登录状态
-	//
 	// @description:
 	//
 	// @param:
 	//
 	// @return:
-	CheckSessionKey(accessToken string, openid string) (bool, error)
+	CheckSessionKey(accessToken string, sessionKey string, openid string) (bool, error)
 
+	// ResetUserSessionKey
 	// 重置登录状态
-	//
 	// @description:
 	//
 	// @param:
 	//
 	// @return:
-	ResetUserSessionKey(accessToken string, openid string) (*dto.Code2SessionDto, error)
+	ResetUserSessionKey(accessToken string, sessionKey string,
+		openid string) (*dto.Code2SessionResDto, error)
 }

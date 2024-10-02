@@ -9,7 +9,11 @@
 package wx_api
 
 import (
+	"errors"
+
+	"wxapp/fastjson"
 	"wxapp/http"
+	"wxapp/model/dto"
 
 	"github.com/samber/do/v2"
 )
@@ -24,10 +28,47 @@ func NewUserApi(i do.Injector) IUserApi {
 	}
 }
 
+func (u *UserApi) GetOpenId(accessToken string, code string) (*dto.OpenidResDto, error) {
+	url := "https://api.weixin.qq.com/wxa/getpluginopenpid?access_token=" + accessToken
+
+	reqBody := "{\"code\":\"" + code + "\"}"
+
+	res, err := u.httpCore.Post(url, reqBody)
+	if err != nil {
+		return nil, err
+	}
+	if res.StatusCode == 200 {
+		resDto, err := fastjson.ConvertToObj[dto.OpenidResDto](res.Body)
+		if err != nil {
+			return nil, err
+		}
+		return resDto, nil
+	} else {
+		return nil, errors.New("获取openid失败")
+	}
+
+}
+
 func (u *UserApi) CheckEncryptedData(encryptData string) (bool, error) {
 	panic("TODO: Implement")
 }
 
-func (u *UserApi) GetPaidUnionId(openId string, transactionId string) (string, error) {
-	panic("TODO: Implement")
+func (u *UserApi) GetPaidUnionId(accessToken string, openId string, transactionId string) (*dto.PayUnionidResDto, error) {
+	url := "https://api.weixin.qq.com/wxa/getpaidunionid?access_token=" + accessToken + "&openid=" + openId + "&transaction_id=" + transactionId
+
+	res, err := u.httpCore.Get(url)
+	if err != nil {
+		return nil, err
+	}
+	if res.StatusCode == 200 {
+
+		resDto, err := fastjson.ConvertToObj[dto.PayUnionidResDto](res.Body)
+		if err != nil {
+			return nil, err
+		}
+		return resDto, nil
+	} else {
+		return nil, errors.New("获取unionid异常")
+	}
+
 }

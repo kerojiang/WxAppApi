@@ -8,6 +8,6 @@
 
 package dto
 
-type CloseOrderRequestDto struct {
+type CloseOrderReqDto struct {
 	MchId string `json:"mchid"`
 }

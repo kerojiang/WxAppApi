@@ -13,7 +13,7 @@ import "wxapp/model"
 // 退款请求dto
 //
 // @description:
-type RefundRequestDto struct {
+type RefundReqDto struct {
 	OutRefundNo string       `json:"out_refund_no"`
 	Amount      model.Amount `json:"amount"`
 }

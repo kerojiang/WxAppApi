@@ -8,7 +8,7 @@
 
 package dto
 
-type HttpResponseDto struct {
+type HttpResDto struct {
 	StatusCode int
 	Body       string
 }

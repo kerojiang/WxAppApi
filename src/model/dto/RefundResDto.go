@@ -11,7 +11,7 @@ package dto
 // 退款响应dto
 //
 // @description:
-type RefundResponseDto struct {
+type RefundResDto struct {
 	RefundId    string `json:"refund_id"`
 	OutRefundNo string `json:"out_refund_no"`
 }

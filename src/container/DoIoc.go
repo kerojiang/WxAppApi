@@ -18,6 +18,13 @@ var once sync.Once
 
 var injector *do.RootScope
 
+// ioc容器实例
+//
+// @description:
+//
+// @param:
+//
+// @return:
 func DoInstance() *do.RootScope {
 
 	once.Do(func() {

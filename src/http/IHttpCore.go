@@ -11,7 +11,7 @@ package http
 import "wxapp/model/dto"
 
 type IHttpCore interface {
-	Get(url string) (*dto.HttpResponseDto, error)
+	Get(url string) (*dto.HttpResDto, error)
 
-	Post(url string, data string) (*dto.HttpResponseDto, error)
+	Post(url string, data string) (*dto.HttpResDto, error)
 }

@@ -8,6 +8,6 @@
 
 package dto
 
-type PayResponseDto struct {
+type PayResDto struct {
 	PrepayId string `json:"prepay_Id"`
 }
