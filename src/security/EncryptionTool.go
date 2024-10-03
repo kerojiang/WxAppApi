@@ -19,6 +19,13 @@ import (
 	"io"
 )
 
+// sha256加密
+//
+// @description:
+//
+// @param:
+//
+// @return:
 func HmacSha256(msg string, secret string) string {
 	hash := hmac.New(sha256.New, []byte(secret))
 	hash.Write([]byte(msg))

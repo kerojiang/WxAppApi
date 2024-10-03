@@ -26,18 +26,18 @@ func NewPayApi(i do.Injector) IPayApi {
 
 }
 
-func (p *PayApi) Pay(payRequest *dto.PayRequestDto) (*dto.PayResponseDto, error) {
+func (p *PayApi) Pay(payRequest *dto.PayReqDto) (*dto.PayResDto, error) {
 	panic("TODO: Implement")
 }
 
-func (p *PayApi) QueryOrder(mchid string, transactionId string) (*dto.QueryOrderResponseDto, error) {
+func (p *PayApi) QueryOrder(mchid string, transactionId string) (*dto.QueryOrderResDto, error) {
 	panic("TODO: Implement")
 }
 
-func (p *PayApi) CloseOrder(closeRequest *dto.CloseOrderRequestDto) (bool, error) {
+func (p *PayApi) CloseOrder(closeRequest *dto.CloseOrderReqDto) (bool, error) {
 	panic("TODO: Implement")
 }
 
-func (p *PayApi) Refund(refundRequest *dto.RefundRequestDto) (*dto.RefundResponseDto, error) {
+func (p *PayApi) Refund(refundRequest *dto.RefundReqDto) (*dto.RefundResDto, error) {
 	panic("TODO: Implement")
 }

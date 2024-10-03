@@ -18,7 +18,7 @@ type IPayApi interface {
 	// @param:
 	//
 	// @return:
-	Pay(payRequest *dto.PayRequestDto) (*dto.PayResponseDto, error)
+	Pay(payRequest *dto.PayReqDto) (*dto.PayResDto, error)
 
 	// 订单查询
 	//
@@ -27,7 +27,7 @@ type IPayApi interface {
 	// @param:
 	//
 	// @return:
-	QueryOrder(mchid string, transactionId string) (*dto.QueryOrderResponseDto, error)
+	QueryOrder(mchid string, transactionId string) (*dto.QueryOrderResDto, error)
 
 	// 关闭订单
 	//
@@ -36,7 +36,7 @@ type IPayApi interface {
 	// @param:
 	//
 	// @return:
-	CloseOrder(closeRequest *dto.CloseOrderRequestDto) (bool, error)
+	CloseOrder(closeRequest *dto.CloseOrderReqDto) (bool, error)
 
 	// 订单退款
 	//
@@ -45,5 +45,5 @@ type IPayApi interface {
 	// @param:
 	//
 	// @return:
-	Refund(refundRequest *dto.RefundRequestDto) (*dto.RefundResponseDto, error)
+	Refund(refundRequest *dto.RefundReqDto) (*dto.RefundResDto, error)
 }

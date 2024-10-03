@@ -38,5 +38,5 @@ type IUserApi interface {
 	// @param:
 	//
 	// @return:
-	GetPaidUnionId(openId string, transactionId string) (*dto.PayUnionidResDto, error)
+	GetPaidUnionId(accessToken string, openId string, transactionId string) (*dto.PayUnionidResDto, error)
 }

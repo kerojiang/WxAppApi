@@ -17,4 +17,5 @@ package security
 // @return:
 func Rsa(msg string, secret string) string {
 
+	return ""
 }
