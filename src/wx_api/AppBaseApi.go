@@ -11,6 +11,7 @@ package wx_api
 import (
 	"errors"
 
+	"wxapp/enum"
 	"wxapp/fastjson"
 	"wxapp/http"
 	"wxapp/security"
@@ -36,7 +37,7 @@ func (a *AppBaseApi) GetAccessToken(appId string, secret string) (*dto.AccessTok
 	if err != nil {
 		return nil, err
 	}
-	if res.StatusCode == 200 {
+	if res.StatusCode == int(enum.OK) {
 		resDto, err := fastjson.ConvertToObj[dto.AccessTokenResDto](res.Body)
 		if err != nil {
 			return nil, err
@@ -53,7 +54,7 @@ func (a *AppBaseApi) Code2Session(appId string, secret string, code string) (*dt
 	if err != nil {
 		return nil, err
 	}
-	if res.StatusCode == 200 {
+	if res.StatusCode == int(enum.OK) {
 		resDto, err := fastjson.ConvertToObj[dto.Code2SessionResDto](res.Body)
 		if err != nil {
 			return nil, err
@@ -73,7 +74,7 @@ func (a *AppBaseApi) CheckSessionKey(accessToken string, sessionKey string, open
 	if err != nil {
 		return false, err
 	}
-	if res.StatusCode == 200 {
+	if res.StatusCode == int(enum.OK) {
 		resDto, err := fastjson.ConvertToObj[dto.WXAppErrorDto](res.Body)
 		if err != nil {
 			return false, err
@@ -99,7 +100,7 @@ func (a *AppBaseApi) ResetUserSessionKey(accessToken string, sessionKey string,
 	if err != nil {
 		return nil, err
 	}
-	if res.StatusCode == 200 {
+	if res.StatusCode == int(enum.OK) {
 		resDto, err := fastjson.ConvertToObj[dto.Code2SessionResDto](res.Body)
 		if err != nil {
 			return nil, err

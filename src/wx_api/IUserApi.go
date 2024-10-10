@@ -39,4 +39,22 @@ type IUserApi interface {
 	//
 	// @return:
 	GetPaidUnionId(accessToken string, openId string, transactionId string) (*dto.PayUnionidResDto, error)
+
+	// 获取用户encryptkey
+	//
+	// @description:
+	//
+	// @param:
+	//
+	// @return:
+	GetUserEncryptKey(accessToken string, openId string, sessionKey string) (*dto.EncryptKeyResDto, error)
+
+	// 获取手机号
+	//
+	// @description:
+	//
+	// @param:
+	//
+	// @return:
+	GetPhoneNumber(accessToken string, phoneCode string) (*dto.PhoneInfoResDto, error)
 }
