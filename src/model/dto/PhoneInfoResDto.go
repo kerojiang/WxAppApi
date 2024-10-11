@@ -8,19 +8,9 @@
 
 package dto
 
+import "wxapp/model"
+
 type PhoneInfoResDto struct {
 	WXAppErrorDto
-	Phoneinfo PhoneInfo `json:"phone_info"`
-}
-
-type PhoneInfo struct {
-	PhoneNumber     string             `json:"phoneNumber"`
-	PurePhoneNumber string             `json:"purePhoneNumber"`
-	CountryCode     string             `json:"countryCode"`
-	Watermark       PhoneInfoWatermark `json:"watermark"`
-}
-
-type PhoneInfoWatermark struct {
-	Timestamp int32  `json:"timestamp"`
-	AppId     string `json:"appid"`
+	Phoneinfo model.PhoneInfo `json:"phone_info"`
 }
