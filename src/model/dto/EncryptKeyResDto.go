@@ -11,6 +11,6 @@ package dto
 import "wxapp/model"
 
 type EncryptKeyResDto struct {
-	WXAppErrorDto
-	KeyInfoList []model.EncryptKey `json:"key_info_list"`
+	*WXAppErrorDto
+	KeyInfoList []*model.EncryptKey `json:"key_info_list"`
 }

@@ -11,6 +11,6 @@ package dto
 import "wxapp/model"
 
 type PhoneInfoResDto struct {
-	WXAppErrorDto
-	Phoneinfo model.PhoneInfo `json:"phone_info"`
+	*WXAppErrorDto
+	Phoneinfo *model.PhoneInfo `json:"phone_info"`
 }

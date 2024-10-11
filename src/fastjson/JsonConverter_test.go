@@ -42,10 +42,10 @@ func TestConvertToStr(t *testing.T) {
 		t.Fail()
 	}
 
-	keys := []model.EncryptKey{}
+	keys := []*model.EncryptKey{}
 
 	for i := 0; i < 5; i++ {
-		encryKey := model.EncryptKey{
+		encryKey := &model.EncryptKey{
 			Version:    1,
 			ExpireIn:   7200,
 			EncryptKey: "test",
@@ -56,7 +56,7 @@ func TestConvertToStr(t *testing.T) {
 	}
 
 	encryResDto := &dto.EncryptKeyResDto{
-		WXAppErrorDto: dto.WXAppErrorDto{
+		WXAppErrorDto: &dto.WXAppErrorDto{
 			ErrMsg:  "test",
 			ErrCode: 10004,
 		},

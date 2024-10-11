@@ -9,8 +9,8 @@
 package model
 
 type PhoneInfo struct {
-	PhoneNumber     string             `json:"phoneNumber"`
-	PurePhoneNumber string             `json:"purePhoneNumber"`
-	CountryCode     string             `json:"countryCode"`
-	Watermark       PhoneInfoWatermark `json:"watermark"`
+	PhoneNumber     string              `json:"phoneNumber"`
+	PurePhoneNumber string              `json:"purePhoneNumber"`
+	CountryCode     string              `json:"countryCode"`
+	Watermark       *PhoneInfoWatermark `json:"watermark"`
 }

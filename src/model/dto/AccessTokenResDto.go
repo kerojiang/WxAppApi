@@ -9,7 +9,7 @@
 package dto
 
 type AccessTokenResDto struct {
-	WXAppErrorDto
+	*WXAppErrorDto
 	AccessToken string `json:"access_token"`
 	ExpiresIn   int    `json:"expires_in"`
 }

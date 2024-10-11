@@ -9,6 +9,6 @@
 package dto
 
 type PayUnionidResDto struct {
-	WXAppErrorDto
+	*WXAppErrorDto
 	UnionId string `json:"unionid"`
 }
