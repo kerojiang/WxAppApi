@@ -14,6 +14,6 @@ import "wxapp/model"
 //
 // @description:
 type RefundReqDto struct {
-	OutRefundNo string       `json:"out_refund_no"`
-	Amount      model.Amount `json:"amount"`
+	OutRefundNo string        `json:"out_refund_no"`
+	Amount      *model.Amount `json:"amount"`
 }

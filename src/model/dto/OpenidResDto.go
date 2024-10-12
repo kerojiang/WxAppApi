@@ -9,6 +9,6 @@
 package dto
 
 type OpenidResDto struct {
-	WXAppErrorDto
+	*WXAppErrorDto
 	OpenId string `json:"openid"`
 }

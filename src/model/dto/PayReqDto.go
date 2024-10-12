@@ -11,11 +11,11 @@ package dto
 import "wxapp/model"
 
 type PayReqDto struct {
-	AppId       string       `json:"appId"`
-	MchId       string       `json:"mchId"`
-	Description string       `json:"description"`
-	OutTradeNo  string       `json:"out_trade_no"`
-	NotifyUrl   string       `json:"notify_url"`
-	Amount      model.Amount `json:"amount"`
-	Payer       model.Payer  `json:"payer"`
+	AppId       string        `json:"appId"`
+	MchId       string        `json:"mchId"`
+	Description string        `json:"description"`
+	OutTradeNo  string        `json:"out_trade_no"`
+	NotifyUrl   string        `json:"notify_url"`
+	Amount      *model.Amount `json:"amount"`
+	Payer       *model.Payer  `json:"payer"`
 }

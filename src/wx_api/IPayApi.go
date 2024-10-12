@@ -11,6 +11,7 @@ package wx_api
 import "wxapp/model/dto"
 
 type IPayApi interface {
+
 	// 订单支付
 	//
 	// @description:
